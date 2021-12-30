@@ -2,3 +2,4 @@
 .DS_Store
 ~$*.docx
 /.idea/
+/LeetCode-Practice.iml

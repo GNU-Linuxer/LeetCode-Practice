@@ -16,9 +16,10 @@ public class Q695M {
             Arrays.fill(visited[r], false);
         }
 
-        List<Integer> islandAreas = new LinkedList<Integer>();
+        int largestIslandArea = 0;
+        //List<Integer> islandAreas = new LinkedList<Integer>();
         // Need to re-think why adding the following line is necessary (the no island case)
-        islandAreas.add(0);
+        //islandAreas.add(0);
 
         for (int r = 0; r < grid.length; r++) {
             for (int c = 0; c < grid[r].length; c++) {
@@ -26,14 +27,17 @@ public class Q695M {
                     if (grid[r][c] == 1) {
                         int[] currIslandArea = new int[1];
                         countOnes(grid, r, c, visited, currIslandArea);
-                        islandAreas.add(currIslandArea[0]);
+                        if(currIslandArea[0] > largestIslandArea) {
+                            largestIslandArea = currIslandArea[0];
+                        }
+//                        islandAreas.add(currIslandArea[0]);
                     } else {
                         visited[r][c] = true;
                     }
                 }
             }
         }
-        return Collections.max(islandAreas);
+        return largestIslandArea;
     }
 
     private void countOnes(int[][] grid, int r, int c, boolean[][] visitedPtr, int[] currIslandAreaPtr) {

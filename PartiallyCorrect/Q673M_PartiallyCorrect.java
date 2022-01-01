@@ -1,3 +1,6 @@
+// 673. Number of Longest Increasing Subsequence (Medium)
+// https://leetcode.com/problems/number-of-longest-increasing-subsequence/
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -32,7 +35,9 @@ public class Q673M_PartiallyCorrect {
         int numSequence = 1;
         boolean findMaximum = false;
         Map<Integer, Integer> counts = new HashMap<Integer, Integer>();
-        // Find number of distinct increasing subsequence
+        // Find number of distinct increasing subsequence (not working)
+        // for nums = [1, 2, 4, 3, 5, 4, 7, 2] maxSeq = [1, 2, 3, 3, 4, 4, 5, 2]
+        // I attempted to find index that has same maxSeq but decreasing num, but it's still not working
         for (int j = nums.length - 1; j >= 0; j = j - 1) {
             if(maxSeq[j] == longestSeq) {
                 findMaximum = true;
@@ -40,7 +45,7 @@ public class Q673M_PartiallyCorrect {
             if(findMaximum) {
                 if(!counts.containsKey(maxSeq[j])) {
                     counts.put(maxSeq[j], 1);
-                } else {
+                } else if(!(j < nums.length-2 && nums[j] > nums[j+1] && maxSeq[j] == maxSeq[j+1])){
                     counts.put(maxSeq[j], counts.get(maxSeq[j]) + 1);
                 }
             }

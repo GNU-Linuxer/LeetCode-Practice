@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Q417M_PartiallyCorrect {
+public class Q417M_Attempt_1 {
     public List<List<Integer>> pacificAtlantic(int[][] heights) {
         // It's a BFS/DFS and unlikely to be a DP problem (so try search without optimization first)
         // But it's actually better to determine which cell can reach to Pacific Ocean and which cell can reach to Atlantic Ocean (DP bottom-up approach)
@@ -70,7 +70,7 @@ public class Q417M_PartiallyCorrect {
     }
 
     public static void main(String[] args) {
-        Q417M_PartiallyCorrect test1 = new Q417M_PartiallyCorrect();
+        Q417M_Attempt_1 test1 = new Q417M_Attempt_1();
         int[][] arr1 = {{1,2,2,3,5},{3,2,3,4,4},{2,4,5,3,1},{6,7,1,4,5},{5,1,1,2,4}};
         int[][] arr2 = {{1,2,3},{8,9,4},{7,6,5}};
 

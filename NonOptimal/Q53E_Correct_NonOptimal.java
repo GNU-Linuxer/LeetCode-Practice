@@ -1,7 +1,8 @@
 // 53. Maximum Subarray (Easy)
 // https://leetcode.com/problems/maximum-subarray/
 
-public class Q53E_NonOptimal {
+// Solution is correct. Brute force approach (correct DP approach is in the ./Code/ directory)
+public class Q53E_Correct_NonOptimal {
     public int maxSubArray(int[] nums) {
         if(nums == null) {
             return 0;

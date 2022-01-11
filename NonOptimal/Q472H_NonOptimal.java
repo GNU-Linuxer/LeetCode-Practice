@@ -2,7 +2,7 @@
 // https://leetcode.com/problems/concatenated-words/
 
 import java.util.*;
-
+// Not sure whether solution is correct
 public class Q472H_NonOptimal {
 
     public List<String> findAllConcatenatedWordsInADict(String[] words) {

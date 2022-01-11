@@ -11,4 +11,4 @@ Files within `./PartiallyCorrect/` folder represents potentially correct solutio
 Files within `./PrevAttempt/` folder represents my previous incorrect approaches before reaching to a correct solution in the `./Code/` folder
     Note: my attempts that I believe correct but exceeds time and/or memory limit is in `./NonOptimal/` folder
 
-Programming files are named as following: `Q<question_number><difficulty>.<coding_language>` , such as `Q21E.java` or `Q143M.java`
+Programming files are named as following: `Q<question_number><difficulty>.<coding_language>` , such as `Q21E.java`, `Q143M.java`, or `Q317H.java`

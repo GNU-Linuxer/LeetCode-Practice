@@ -1,6 +1,8 @@
-// Maximum Product Subarray
+// 152. Maximum Product Subarray
+// https://leetcode.com/problems/maximum-product-subarray/
 
-public class Q152M_NonOptimal {
+// Solution is correct but exceeds memory limit
+public class Q152M_Correct_NonOptimal {
     public int maxProduct(int[] nums) {
         if(nums.length == 0) {
             return 0;

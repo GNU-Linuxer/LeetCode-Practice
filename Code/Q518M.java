@@ -2,7 +2,7 @@
 // https://leetcode.com/problems/coin-change-2/
 
 // Used the same DP approach of Q332, but the state transfer function is referred from this video (https://www.bilibili.com/video/BV1kX4y1P7M3)
-// 直接从题目中的示例找法出发，DP就是在给你一个新的硬币的时候，通过从之前凑好的面值+当前新给的硬币看能不能凑出amount
+// 直接从题目中的示例找法出发，DP就是在给你一个新的硬币的时候，通过从之前凑好的面值+当前新给的硬币（因为可以使用的总硬币数量+1了）看能不能凑出amount
 
 public class Q518M {
     public int change(int amount, int[] coins) {

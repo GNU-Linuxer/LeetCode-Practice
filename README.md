@@ -9,5 +9,6 @@ Files within `./NonOptimal/` folder represents potentially correct solutions, th
 Files within `./PartiallyCorrect/` folder represents potentially correct solutions that do not pass all test cases
 
 Files within `./PrevAttempt/` folder represents my previous incorrect approaches before reaching to a correct solution in the `./Code/` folder
+    Note: my attempts that I believe correct but exceeds time and/or memory limit is in `./NonOptimal/` folder
 
 Programming files are named as following: `Q<question_number><difficulty>.<coding_language>` , such as `Q21E.java` or `Q143M.java`

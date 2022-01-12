@@ -2,7 +2,9 @@
 
 `LeetCode record.docx` records my notes while solving LeetCode problems.
 
-Files within `./Code/` folder represents my accepted solutions, through not all program have my handwritten test cases in the main method
+Files within `./Code/` folder represents my accepted solutions, through not all program have my handwritten test cases in the main method.
+
+Files within `./OtherApproach/` folder contains other ways to correctly solve a LeetCode problem.
 
 Files within `./NonOptimal/` folder represents potentially correct solutions, through they do not satisfy time and/or memory constraint
 

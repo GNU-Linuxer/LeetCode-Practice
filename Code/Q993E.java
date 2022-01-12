@@ -12,26 +12,49 @@ public class Q993E {
 
         Queue<TreeNode> queue1 = new LinkedList<TreeNode>();
         queue1.add(root);
-        boolean[] foundCousin = new boolean[2]; // [0]=found x; [1]=found y
-        int layerCount = 0; // we're excluding direct children of the overall root
+        // Note: Each node has a unique value, and x != y (this assumption is not present when I do this problem in the OA system,
+        // so if I encounter it in interview, take initiative to ask interviewer more "technical specification")
+        // We're excluding direct children of root
+        int[] parentOfNodeArr = {-1, -2};
+        //Map<Integer, Integer> parentOfNode = new HashMap<Integer, Integer>(); // y = parentOfNode.get(x); is the parent node of x
+        //parentOfNode.put(x, -1);
+        //parentOfNode.put(y, -2);
         while(!queue1.isEmpty()) {
             Queue<TreeNode> queue2 = new LinkedList<TreeNode>();
             while(!queue1.isEmpty()) {
                 TreeNode top = queue1.remove();
-                foundCousin[0] = (foundCousin[0] || top.val == x); // assuming x != y
-                foundCousin[1] = (foundCousin[1] || top.val == y); // assuming x != y
                 if(top.left != null){
                     queue2.add(top.left);
+                    if(top.left.val == x) {
+                        parentOfNodeArr[0] = top.val;
+                        //parentOfNode.replace(x, top.val);
+                    }
+                    if(top.left.val == y) {
+                        parentOfNodeArr[1] = top.val;
+                        //parentOfNode.replace(y, top.val);
+                    }
                 }
                 if(top.right != null) {
                     queue2.add(top.right);
+                    if(top.right.val == x) {
+                        parentOfNodeArr[0] = top.val;
+                        //parentOfNode.replace(x, top.val);
+                    }
+                    if(top.right.val == y) {
+                        parentOfNodeArr[1] = top.val;
+                        //parentOfNode.replace(y, top.val);
+                    }
                 }
             }
-            if(layerCount>=2 && foundCousin[0] && foundCousin[1]) {
+            // Take advantage of this constraint: 1 <= Node.val <= 100 so we can save a Map ADT
+            //if(parentOfNode.get(x) != parentOfNode.get(y) && parentOfNode.get(x) != -1 && parentOfNode.get(y) != -2) {
+            if(parentOfNodeArr[0] != parentOfNodeArr[1] && parentOfNodeArr[0] != -1 && parentOfNodeArr[1] != -2) {
                 return true;
             }
-            Arrays.fill(foundCousin, false);
-            layerCount++;
+            //parentOfNode.replace(x, -1);
+            //parentOfNode.replace(y, -2);
+            parentOfNodeArr = new int[] {-1, -2};
+
             queue1 = queue2;
         }
         return false;
@@ -70,35 +93,16 @@ public class Q993E {
         return root;
     }
 
-    // Scanner will accept following:
-    // BFS order of tree
-    // int x
-    // int y
-
-    // Such as:
-    // [1,2,3,4]
-    // 4
-    // 3
     public static void main(String[] args){
         Q993E test1 = new Q993E();
-        Scanner in = new Scanner(System.in);
-        boolean res;
-
-        String tree = in.nextLine().trim();
-        TreeNode _root = test1.constructTree(tree.substring(1, tree.length() - 1));
-
-        int _x;
-        _x = Integer.parseInt(in.nextLine().trim());
-
-        int _y;
-        _y = Integer.parseInt(in.nextLine().trim());
-
-        res = test1.isCousins(_root, _x, _y);
-        System.out.println(res ? "true" : "false");
+        TreeNode tree = test1.constructTree("1,2,3,4");
+        TreeNode tree2 = test1.constructTree("1,2,3,null,4,null,5");
+//        System.out.println(test1.isCousins(tree, 4, 3));
+        System.out.println(test1.isCousins(tree2, 5, 4));
     }
 
 
-    class TreeNode {
+    private class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;

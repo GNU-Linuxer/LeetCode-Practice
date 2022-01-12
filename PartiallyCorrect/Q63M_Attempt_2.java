@@ -1,7 +1,7 @@
 // 63. Unique Paths II (Medium)
 // https://leetcode.com/problems/unique-paths-ii/
 
-public class Q63E_WIP {
+public class Q63M_Attempt_2 {
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
         if(obstacleGrid[obstacleGrid.length-1][obstacleGrid[0].length-1] == 1) {
             return 0;

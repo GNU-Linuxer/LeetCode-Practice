@@ -3,7 +3,6 @@
 
 import java.util.*;
 
-// Pass a half test cases
 public class Q317H {
     public int shortestDistance(int[][] grid) {
         if(grid == null || grid.length == 0 || grid[0].length == 0) {

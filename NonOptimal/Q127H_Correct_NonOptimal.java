@@ -10,7 +10,7 @@ public class Q127H_Correct_NonOptimal {
             return 0;
         }
         wordList.add(beginWord);
-        // Build a Graph (using adjacency list data structure) that connects two words if it differs by no more than 1 letter
+        // Build a Graph (using adjacency matrix data structure) that connects two words if it differs by no more than 1 letter
         boolean[][] graph = new boolean[wordList.size()][wordList.size()]; // graph[i][j] = true means wordList.get(i) and wordList.get(j) differs from 1, false otherwise
         Set<String> visited = new HashSet<String>();
         constructGraph(graph, wordList);

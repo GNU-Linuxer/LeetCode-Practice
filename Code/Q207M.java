@@ -14,15 +14,12 @@ public class Q207M {
         }
 
         Map<Integer, List<Integer>> graph = new HashMap<Integer, List<Integer>>();
-
+        for(int i = 0; i < numCourses; i ++) {
+            graph.put(i, new ArrayList<Integer>());
+        }
 
         for(int[] prereq : prerequisites) {
-            int a = prereq[1]; // a -> b
-            int b = prereq[0];
-            if(!graph.containsKey(a)) {
-                graph.put(a, new ArrayList<Integer>());
-            }
-            graph.get(a).add(b);
+            graph.get(prereq[1]).add(prereq[0]);
         }
 
         Set<Integer> visited = new HashSet<Integer>();
@@ -55,12 +52,12 @@ public class Q207M {
             return 1; // cycle is here
         }
         visiting.add(start);
-            for(int i : graph.get(start)) {
-                if(!visited.contains(i)) {
-                    if(dfsHelper(i, graph, visited, visiting) != 0) {
-                        return 1;
-                    }
+        for(int i : graph.get(start)) {
+            if(!visited.contains(i)) {
+                if(dfsHelper(i, graph, visited, visiting) != 0) {
+                    return 1;
                 }
+            }
         }
         visiting.remove(start);
         visited.add(start);

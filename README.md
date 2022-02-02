@@ -1,4 +1,4 @@
-# My continuous dedication to learn algorithms on **LeetCode**
+# My continuous dedication to learn Data Structures and Algorithms on LeetCode
 
 `LeetCode record.docx` records my notes while solving LeetCode problems.
 

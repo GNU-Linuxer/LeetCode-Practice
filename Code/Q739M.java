@@ -16,7 +16,7 @@ public class Q739M {
             int temp = temperatures[i];
             while(!largeTemp.isEmpty() && temp > temperatures[largeTemp.peek()]) {
                 int index = largeTemp.pop();
-                result[index] = i - index;
+                result[index] = i - index; // I will always be larger than index
             }
             largeTemp.push(i);
         }

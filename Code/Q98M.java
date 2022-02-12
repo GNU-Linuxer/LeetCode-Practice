@@ -1,25 +1,37 @@
 // 98. Validate Binary Search Tree (Medium)
 // https://leetcode.com/problems/validate-binary-search-tree/
 
+import java.util.LinkedList;
+import java.util.List;
+
+// My original approach that uses the sorted property of in-order traversal on a valid binary search tree
 public class Q98M {
     public boolean isValidBST(TreeNode root) {
-        if (root == null) {
+        if(root == null) {
             return true;
         }
 
-        return isValidBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
+        List<Integer> inOrderTrv = new LinkedList<Integer>();
+
+        inOrder(root, inOrderTrv);
+
+        int prevVal = inOrderTrv.remove(0);
+        for(int i : inOrderTrv) {
+            if(i <= prevVal) {
+                return false;
+            }
+            prevVal = i;
+        }
+        return true;
     }
-
-    private boolean isValidBST(TreeNode root, long low, long high) {
-        if (root == null) {
-            return true;
+    private void inOrder(TreeNode root, List<Integer> inOrderTrv) {
+        if(root == null) {
+            return;
         }
+        inOrder(root.left, inOrderTrv);
+        inOrderTrv.add(root.val);
+        inOrder(root.right, inOrderTrv);
 
-        if (root.val > low && root.val < high) {
-            return isValidBST(root.left, low, root.val) && isValidBST(root.right, root.val, high);
-        } else {
-            return false;
-        }
     }
 
     private class TreeNode {
